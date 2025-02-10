@@ -21,8 +21,8 @@ Este projeto consiste no desenvolvimento de um **CRUD completo** para gerenciame
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **Java 17**
-- **Spring Boot 3.0**
+- **Java 21**
+- **Spring Boot 3.3.8**
 - **Spring Data JPA**
 - **Banco de Dados H2** (para testes)
 - **Bean Validation** (para validação de campos)
