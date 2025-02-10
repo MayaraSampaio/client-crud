@@ -15,7 +15,7 @@ Este projeto consiste no desenvolvimento de um **CRUD completo** para gerenciame
 - Implementação de **tratamento de exceções**:
   - **Id não encontrado** → retorna código `404`.
   - **Erro de validação** → retorna código `422` com mensagens customizadas.
-- Seed inicial com pelo menos **10 clientes** contendo dados significativos.
+- Seed inicial com pelo menos **10 clientes**.
 
 ---
 
