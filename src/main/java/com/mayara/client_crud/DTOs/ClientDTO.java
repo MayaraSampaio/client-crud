@@ -1,14 +1,18 @@
 package com.mayara.client_crud.DTOs;
 
 import com.mayara.client_crud.entities.Client;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
 
 import java.time.LocalDate;
 
 public class ClientDTO {
     private Long id;
+    @NotBlank(message = "The name field is empty")
     private String name;
     private String cpf;
     private Double income;
+    @PastOrPresent(message = "Invalid date")
     private LocalDate birthDate;
     private Integer children;
 

@@ -2,14 +2,12 @@ package com.mayara.client_crud.controllers;
 
 import com.mayara.client_crud.DTOs.ClientDTO;
 import com.mayara.client_crud.services.ClientService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -29,7 +27,22 @@ public class ClientController {
         Page<ClientDTO> dto = clientService.findAll(pageable);
         return ResponseEntity.ok(dto);
     }
+    @PostMapping
+    public ResponseEntity<ClientDTO> insert(@Valid @RequestBody ClientDTO client){
+        client = clientService.insert(client);
+        return ResponseEntity.ok(client);
+    }
 
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<ClientDTO> update(@PathVariable Long id,@Valid @RequestBody ClientDTO client) {
+        client = clientService.update(id,client);
+        return ResponseEntity.ok(client);
 
+    }
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        clientService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 
 }
