@@ -19,7 +19,7 @@ public class ClientService {
     @Transactional(readOnly = true)
     public ClientDTO findById(Long id){
         Client client= clientRepository.findById(id).orElseThrow(
-                ()-> new ResourceNotFoundException("Resource not found"));
+                ()-> new ResourceNotFoundException("Client not found"));
         return new ClientDTO(client);
 
     }
@@ -46,14 +46,14 @@ public class ClientService {
             clientRepository.save(entity);
             return new ClientDTO(entity);
         }catch (EntityNotFoundException e){
-            throw new ResourceNotFoundException("Resource not Found");
+            throw new ResourceNotFoundException("Client not found");
         }
     }
 
     @Transactional
     public void delete(Long id){
         if(!clientRepository.existsById(id)){
-            throw new ResourceNotFoundException("Resource not found");
+            throw new ResourceNotFoundException("Client not found");
         }
         clientRepository.deleteById(id);
     }

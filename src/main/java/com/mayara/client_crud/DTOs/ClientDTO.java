@@ -8,11 +8,11 @@ import java.time.LocalDate;
 
 public class ClientDTO {
     private Long id;
-    @NotBlank(message = "The name field is empty")
+    @NotBlank(message = "Name cannot be empty")
     private String name;
     private String cpf;
     private Double income;
-    @PastOrPresent(message = "Invalid date")
+    @PastOrPresent(message = "Birth date must be in the past or present")
     private LocalDate birthDate;
     private Integer children;
 
