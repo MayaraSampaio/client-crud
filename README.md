@@ -1,40 +1,32 @@
-# CRUD de Clientes - Spring Boot
+# Client CRUD - Spring Boot
 
-## 📌 Desafio
+## 🚀 Project Overview
+This project is a **RESTful API** built with **Spring Boot** to manage clients, implementing the following operations:
 
-Este projeto consiste no desenvolvimento de um **CRUD completo** para gerenciamento de clientes utilizando **Spring Boot**, seguindo os requisitos abaixo:
+- **Paginated retrieval** of clients.
+- **Find client by ID**.
+- **Insert a new client**.
+- **Update an existing client**.
+- **Delete a client**.
 
-- Web Service REST com as seguintes operações:
-  - **Busca paginada** de clientes.
-  - **Busca por ID**.
-  - **Inserção de um novo cliente**.
-  - **Atualização** de um cliente existente.
-  - **Exclusão** de um cliente.
-- Banco de dados **H2** configurado para ambiente de testes.
-- Uso do **Maven** como gerenciador de dependências.
-- Implementação de **tratamento de exceções**:
-  - **Id não encontrado** → retorna código `404`.
-  - **Erro de validação** → retorna código `422` com mensagens customizadas.
-- Seed inicial com pelo menos **10 clientes**.
+The project uses an **H2 database** for testing, **Maven** as the dependency manager, and follows best practices for exception handling.
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
-
+## 🛠️ Technologies
 - **Java 21**
 - **Spring Boot 3.3.8**
 - **Spring Data JPA**
-- **Banco de Dados H2** (para testes)
-- **Bean Validation** (para validação de campos)
+- **H2 Database** (Testing environment)
 - **Maven**
+- **Bean Validation**
 
----
 
-## 🛡️ Tratamento de Exceções
+## 🛡️ Exception Handling
 
-| Cenário | Código HTTP | Resposta |
-|---------|------------|----------|
-| Cliente não encontrado | `404 Not Found` | `{"error": "Cliente não encontrado"}` |
-| Nome vazio | `422 Unprocessable Entity` | `{"error": "Nome não pode ser vazio"}` |
-| Data de nascimento futura | `422 Unprocessable Entity` | `{"error": "A data de nascimento deve ser no passado ou presente"}` |
+| Scenario | HTTP Code | Response |
+|----------|----------|----------|
+| Client not found | `404 Not Found` | `{ "error": "Client not found" }` |
+| Empty name | `422 Unprocessable Entity` | `{ "error": "Name cannot be empty" }` |
+| Future birth date | `422 Unprocessable Entity` | `{ "error": "Birth date must be in the past or present" }` |
 
